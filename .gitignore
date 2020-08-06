@@ -3,3 +3,6 @@
 
 # idea ingoring
 .idea/
+
+# Django stuff:
+db.sqlite3
