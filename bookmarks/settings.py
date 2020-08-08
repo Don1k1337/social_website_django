@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/3.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
-
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -125,3 +125,9 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+'''MEDIA_URL is the base URL used to serve the media files uploaded by users, and
+MEDIA_ROOT is the local path where they reside. You build the path dynamically
+relative to your project path to make your code more generic.'''
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
