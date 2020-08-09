@@ -63,7 +63,6 @@ def register(request):
                   {'user_form': user_form})
 
 
-@login_required
 # view func to edit existing profiles
 @login_required
 def edit(request):
@@ -71,15 +70,15 @@ def edit(request):
         user_form = UserEditForm(instance=request.user,
                                  data=request.POST)
         profile_form = ProfileEditForm(
-                                    instance=request.user.profile,
-                                    data=request.POST,
-                                    files=request.FILES)
+            instance=request.user.profile,
+            data=request.POST,
+            files=request.FILES)
         if user_form.is_valid() and profile_form.is_valid():
             user_form.save()
             profile_form.save()
             messages.success(request, 'Profile updated successfully')
         else:
-            messages.error(request, 'Error updating your profile, please try again')
+            messages.error(request, 'Error updating your profile, please try again.')
     else:
         user_form = UserEditForm(instance=request.user)
         profile_form = ProfileEditForm(instance=request.user.profile)
