@@ -1,6 +1,8 @@
-from django.shortcuts import render
+from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
+from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
 from django.contrib.auth import authenticate, login
+from django.contrib.auth.models import User
 from .forms import LoginForm, UserRegistrationForm, \
     UserEditForm, ProfileEditForm
 from django.contrib.auth.decorators import login_required
@@ -86,3 +88,34 @@ def edit(request):
                   'account/edit.html',
                   {'user_form': user_form,
                    'profile_form': profile_form})
+
+
+@login_required
+def user_list(request):
+    users = User.objects.filter(is_active=True)
+    # paginator = Paginator(users, 2)
+    # page = request.GET.get('page')
+    # try:
+    #     users = paginator.page(page)
+    # except PageNotAnInteger:
+    #     # If page is not an int deliver the first page
+    #     images = paginator.page(1)
+    # except EmptyPage:
+    #     return HttpResponse('')
+    #     # If page is out of range deliver last page of results
+    # users = paginator.page(paginator.num_pages)
+    return render(request,
+                  'account/user/list.html',
+                  {'section': 'people',
+                   'users': users})
+
+
+@login_required
+def user_detail(request, username):
+    user = get_object_or_404(User,
+                             username=username,
+                             is_active=True)
+    return render(request,
+                  'account/user/detail.html',
+                  {'section': 'people',
+                   'user': user})
