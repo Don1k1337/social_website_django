@@ -93,17 +93,17 @@ def edit(request):
 @login_required
 def user_list(request):
     users = User.objects.filter(is_active=True)
-    # paginator = Paginator(users, 2)
-    # page = request.GET.get('page')
-    # try:
-    #     users = paginator.page(page)
-    # except PageNotAnInteger:
-    #     # If page is not an int deliver the first page
-    #     images = paginator.page(1)
-    # except EmptyPage:
-    #     return HttpResponse('')
-    #     # If page is out of range deliver last page of results
-    # users = paginator.page(paginator.num_pages)
+    paginator = Paginator(users, 2)
+    page = request.GET.get('page')
+    try:
+        users = paginator.page(page)
+    except PageNotAnInteger:
+        # If page is not an int deliver the first page
+        images = paginator.page(1)
+    except EmptyPage:
+        return HttpResponse('')
+        # If page is out of range deliver last page of results
+    users = paginator.page(paginator.num_pages)
     return render(request,
                   'account/user/list.html',
                   {'section': 'people',
