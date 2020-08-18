@@ -47,7 +47,12 @@ def dashboard(request):
     if following_ids:
         # If user is following others, retrieve only their actions
         actions = actions.filter(user_id__in=following_ids)
-    actions = actions[:10]
+    # select_related method allows to retrieve related obj
+    # to one-to-many rel, and avoid additional queries by using SQL JOIN
+    # we use user__profile to join the Profile table in a single SQL query
+    actions = actions.select_related('user', 'user__profile') \
+                  .prefetch_related('target')[:10] # prefetch supports the prefetching of GenericRelation
+    # and GenericForeignKey field
     return render(request,
                   'account/dashboard.html',
                   {'section': 'dashboard',
