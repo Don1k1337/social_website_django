@@ -47,6 +47,7 @@ src/redis-server
 You should see an output that ends with the following lines:
 
 `Server initialized`
+
 `* Ready to accept connections`
 
 By default, Redis runs on port 6379 . You can specify a custom port using the --port flag, for example, redis-server --port 6655. Keep the Redis server running and open another shell. Start the Redis client with the following command:
