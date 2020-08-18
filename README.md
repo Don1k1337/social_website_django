@@ -1,6 +1,7 @@
 # social_website_django
 Pet-project, social website builded with the help of Python, and Django Web framework
-
+This project was implemented with the most required tech stack. Was created a authentication using social Auth (Google/Facebook APIs), activity stream, follow/like system.
+Implemented simple view counter of image, with the help of Redis NoSQL database.
 
 ### Set-Up Instructions ###
 
@@ -10,7 +11,7 @@ Create a virtual environment to isolate our package dependencies locally, if you
 
 `$ source venv/bin/activate`
 
-`$ pip3 install -r requirements.txt`
+`$ pip install -r requirements.txt`
 
 `$ python3 manage.py migrate`
 
