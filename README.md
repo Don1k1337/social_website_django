@@ -33,8 +33,9 @@ Create a virtual environment to isolate our package dependencies locally, if you
 If you are using Linux or macOS, download the latest Redis version from https://redis.io/download. Unzip the tar.gz file, enter the redis directory, and compile
 Redis using the make command, as follows:
 
-`cd redis-5.0.8
-make`
+`cd redis-5.0.8`
+
+`make`
 
 Redis is now installed on your machine. If you are using Windows, the preferred
 method to install Redis is to enable the Windows Subsystem for Linux (WSL)
