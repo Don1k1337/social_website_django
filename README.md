@@ -1,9 +1,9 @@
-### social_website_django ###
+# social_website_django #
 Pet-project, social website builded with the help of Python, and Django Web framework
 This project was implemented with the most required tech stack. Was created a authentication using social Auth (Google/Facebook APIs), activity stream, follow/like system.
 Implemented simple view counter of image and ranking bookmarks system, with the help of Redis NoSQL database.
 
-### Set-Up Instructions ###
+# Set-Up Instructions #
 
 Create a virtual environment to isolate our package dependencies locally, if you are using linux please note that you must specify the version of Python, like that:
  
@@ -17,7 +17,7 @@ Create a virtual environment to isolate our package dependencies locally, if you
 
 `$ python3 manage.py runserver `
 
-# For macOS users:
+## For macOS users: ##
 
 `$ python -m venv venv`
 
@@ -29,7 +29,7 @@ Create a virtual environment to isolate our package dependencies locally, if you
 
 `$ python manage.py runserver `
 
-# Installing Redis:
+## Installing Redis: ##
 If you are using Linux or macOS, download the latest Redis version from https://redis.io/download. Unzip the tar.gz file, enter the redis directory, and compile
 Redis using the make command, as follows:
 
@@ -57,7 +57,7 @@ You will see the Redis client shell prompt, like this:
 
 The Redis client allows you to execute Redis commands directly from the shell
 
-# Using Redis with Python:
+## Using Redis with Python: ##
 It will be installed when you install requirements.txt packages.
 
 *That's all, you completely installed social website django application.*
