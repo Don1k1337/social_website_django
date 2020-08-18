@@ -9,7 +9,7 @@
     {% for user in users %}
       <div class="user">
         <a href="{{ user.get_absolute_url }}">
-          <img src="{{ user.profile.photo.url }}">
+          <img src="{{ user.profile.photo }}">
         </a>
         <div class="info">
           <a href="{{ user.get_absolute_url }}" class="title">
